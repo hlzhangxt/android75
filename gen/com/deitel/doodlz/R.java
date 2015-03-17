@@ -29,6 +29,7 @@ public final class R {
         public static final int alphaSeekBar=0x7f080003;
         public static final int alphaTextView=0x7f080002;
         public static final int bkcolor=0x7f080014;
+        public static final int bkimg=0x7f080015;
         public static final int blueSeekBar=0x7f080009;
         public static final int blueTextView=0x7f080008;
         public static final int clear=0x7f080012;
@@ -42,7 +43,7 @@ public final class R {
         public static final int greenTextView=0x7f080006;
         public static final int lineWidth=0x7f080010;
         public static final int lineWidthDialogGridLayout=0x7f08000c;
-        public static final int print=0x7f080015;
+        public static final int print=0x7f080016;
         public static final int redSeekBar=0x7f080005;
         public static final int redTextView=0x7f080004;
         public static final int save=0x7f080013;
@@ -62,6 +63,7 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int backgroundcolor=0x7f050016;
         public static final int bkcolor=0x7f050017;
+        public static final int bkimg=0x7f050018;
         public static final int button_cancel=0x7f050002;
         public static final int button_erase=0x7f050001;
         public static final int button_set_color=0x7f050003;

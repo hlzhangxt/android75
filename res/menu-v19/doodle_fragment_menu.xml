@@ -25,11 +25,12 @@
         android:showAsAction="ifRoom"
         android:title="@string/menuitem_save">
     </item>
-    <item android:id="@+id/bkcolor" android:showAsAction="ifRoom" android:title="@string/backgroundcolor"></item><item
+    <item android:id="@+id/bkcolor" android:showAsAction="ifRoom" android:title="@string/backgroundcolor"></item><item android:id="@+id/bkimg" android:title="@string/bkimg" android:showAsAction="ifRoom"></item><item
         android:id="@+id/print"
         android:showAsAction="ifRoom"
         android:title="@string/menuitem_print">
     </item>
+    
     
 
 </menu>

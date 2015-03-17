@@ -68,7 +68,12 @@ public class ColorDialogFragment extends DialogFragment
       // use current drawing color to set SeekBar values
       final DoodleView doodleView = getDoodleFragment().getDoodleView();
       if (isBackGround)
+      {
     	  color = doodleView.getBackColor(); 
+    	  alphaSeekBar.setVisibility(TRIM_MEMORY_UI_HIDDEN);
+    	  colorDialogView.findViewById(R.id.alphaTextView).setVisibility(TRIM_MEMORY_UI_HIDDEN);
+    	  
+      }
       else	  
          color = doodleView.getDrawingColor();
       

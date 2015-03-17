@@ -4,12 +4,16 @@ package com.deitel.doodlz;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,6 +28,7 @@ public class DoodleFragment extends Fragment
    private float currentAcceleration; 
    private float lastAcceleration; 
    private boolean dialogOnScreen = false;
+   public static int SELECT_PICTURE = 100;
    
    // value used to determine whether user shook the device to erase
    private static final int ACCELERATION_THRESHOLD = 100000;
@@ -153,13 +158,16 @@ public class DoodleFragment extends Fragment
       // switch based on the MenuItem id
       switch (item.getItemId()) 
       {
+         case R.id.bkimg:
+        	((MainActivity)getActivity()).selectImageForBack();
+            return true; // consume the menu event
          case R.id.bkcolor:
-            ColorDialogFragment colorDialog1 = new ColorDialogFragment(true);      
-            colorDialog1.show(getFragmentManager(), "backgoundcolor dialog");
+            ColorDialogFragment colorDialog = new ColorDialogFragment(true);      
+            colorDialog.show(getFragmentManager(), "backgoundcolor dialog");
             return true; // consume the menu event
          case R.id.color:
-        	 ColorDialogFragment colorDialog2 = new ColorDialogFragment(false);      
-             colorDialog2.show(getFragmentManager(), "color dialog");
+        	 colorDialog = new ColorDialogFragment(false);      
+             colorDialog.show(getFragmentManager(), "color dialog");
              
             return true; // consume the menu event
          case R.id.lineWidth:
@@ -176,7 +184,8 @@ public class DoodleFragment extends Fragment
          case R.id.save:     
             doodleView.saveImage(); // save the current image
             return true; // consume the menu event
-         case R.id.print:     
+         case R.id.print:  
+        	// doodleView.invalidate();
             doodleView.printImage(); // print the current images
             return true; // consume the menu event
       } // end switch
@@ -195,6 +204,14 @@ public class DoodleFragment extends Fragment
    {
       dialogOnScreen = visible;  
    }
+   
+  
+
+	//}
+   
+   
+  
+   
 }
 
 /**************************************************************************

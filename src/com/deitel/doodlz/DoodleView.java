@@ -5,10 +5,12 @@ package com.deitel.doodlz;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
@@ -24,7 +26,7 @@ import android.view.View;
 import android.widget.Toast;
 
 // the main screen that is painted
-public class DoodleView extends View 
+@SuppressLint("NewApi") public class DoodleView extends View 
 {
    // used to determine whether user moved a finger enough to draw again   
    private static final float TOUCH_TOLERANCE = 10;
@@ -147,7 +149,28 @@ public class DoodleView extends View
          canvas.drawPath(pathMap.get(key), paintLine); // draw line
    } 
 
-   // hide system bars and action bar
+   public Bitmap getBitmap() {
+	return bitmap;
+}
+
+   private  Bitmap Scale(Bitmap bitmap) {
+	   Matrix matrix = new Matrix(); 
+	   matrix.postScale((float)(getWidth()*1.0/bitmap.getWidth()),(float)(getHeight()*1.0/bitmap.getHeight())); //长和宽放大缩小的比例
+	   Bitmap resizeBmp = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
+	   return resizeBmp;
+	  }   
+   
+   
+public void setBitmap(Bitmap bitmap) {
+	//bitmap.setHeight(getHeight());
+	//bitmap.setWidth(getWidth());
+	//bitmap.setConfig(Bitmap.Config.ARGB_8888);
+	paintLine.setColor(PaintColor);
+	this.bitmap = Scale(bitmap);
+	bitmapCanvas = new Canvas(this.bitmap);
+}
+
+// hide system bars and action bar
    public void hideSystemBars()
    {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)

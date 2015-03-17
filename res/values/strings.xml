@@ -25,5 +25,6 @@
     <string name="title_line_width_dialog">Choose Line Width</string>
     <string name="backgroundcolor">Background Color</string>
     <string name="bkcolor">Background Color</string>
+    <string name="bkimg">Set Background Image</string>
 
 </resources>
